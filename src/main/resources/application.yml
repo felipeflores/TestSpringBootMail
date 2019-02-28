@@ -1,0 +1,48 @@
+
+spring:
+  mail:
+    host: teste.com.br
+    username: username
+    password: password
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 587
+
+
+         
+default:
+  sender: noreply@teste.com.br
+  recipient: noreply@teste.com.br
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  loggers:
+    sensitive: false
+    configuredLevel: INFO
+  security:
+    enabled: false   
+    
+    
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://10.0.1.252:9091}/eureka/
+    healthcheck:
+      enabled: true
+    registryFetchIntervalSeconds: 5
+    enabled: true
+  #server:
+    #wait-time-in-ms-when-sync-empty: 3000
+  instance:
+    preferIpAddress: true
+    
+ribbon:
+  eureka:
+    enabled: true
